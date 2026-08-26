@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Projects | Macgregor Whiting</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 2rem; background: #f9f9f9; }
+        header { border-bottom: 2px solid #0056b3; padding-bottom: 1rem; margin-bottom: 2rem; }
+        nav a { color: #0056b3; text-decoration: none; font-weight: bold; margin-right: 15px; }
+        section { background: white; padding: 1.5rem; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-bottom: 1.5rem; }
+        h2 { color: #0056b3; margin-top: 0; }
+        .tech-tag { background: #e9ecef; color: #495057; padding: 3px 8px; border-radius: 4px; font-size: 0.85rem; font-family: monospace; }
+        pre { background: #272822; color: #f8f8f2; padding: 1rem; border-radius: 4px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Macgregor Whiting</h1>
+        <p>IT Systems Administrator | Technical Project Portfolio</p>
+        <nav>
+            <a href="index.html">Home</a> | 
+            <a href="projects.html">Projects</a> | 
+            <a href="https://www.linkedin.com/in/macgregor-whiting" target="_blank">LinkedIn</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Enterprise Zero-Trust Linux Infrastructure</h2>
+        <p>
+            <span class="tech-tag">Rocky Linux</span>
+            <span class="tech-tag">FreeIPA</span>
+            <span class="tech-tag">Kerberos</span>
+            <span class="tech-tag">Firewalld</span>
+            <span class="tech-tag">LVM</span>
+        </p>
+        <p>Designed and documented an enterprise Linux deployment centered around zero-trust security principles to eliminate implicit trust within internal networks.</p>
+        <ul>
+            <li><strong>Identity & Governance:</strong> Centralized authentication using FreeIPA and Kerberos with strict Role-Based Access Control (RBAC).</li>
+            <li><strong>Network Microsegmentation:</strong> Restricted lateral network movement using custom <code>firewalld</code> zones and isolated VLANs.</li>
+            <li><strong>Storage & System Management:</strong> Utilized Logical Volume Management (LVM) for scalable disk management and SSH key enforcement for remote administrative access.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Virtualized Enterprise Homelab Environment</h2>
+        <p>
+            <span class="tech-tag">Proxmox VE</span>
+            <span class="tech-tag">pfSense</span>
+            <span class="tech-tag">Ubuntu Server</span>
+            <span class="tech-tag">Windows Server</span>
+            <span class="tech-tag">VLAN Routing</span>
+        </p>
+        <p>Built a multi-node production-style virtualized laboratory to test network isolation, identity synchronization, and automated backup routines.</p>
+        <ul>
+            <li>Deployed pfSense to manage isolated subnets (LAN Home, LAN Work, LAN Testing) with explicit WAN/LAN firewall filtering.</li>
+            <li>Configured Proxmox VE for host virtualization, running guest Linux servers (systemd, cron workflows) and Windows environments.</li>
+            <li>Implemented continuous VM backup schedules and automated recovery testing.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Cloud Infrastructure & Identity Governance (Azure & AWS)</h2>
+        <p>
+            <span class="tech-tag">Azure AD / Entra ID</span>
+            <span class="tech-tag">Azure VMs</span>
+            <span class="tech-tag">AWS IAM</span>
+            <span class="tech-tag">AZ-104</span>
+        </p>
+        <p>Executed cloud resource deployments focusing on cost optimization, security boundaries, and centralized identity management aligned with the Microsoft Azure Administrator certification.</p>
+    </section>
+
+</body>
+</html>
