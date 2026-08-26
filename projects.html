@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Projects | Macgregor Whiting</title>
+    <title>Projects | Macgregor Whiting</title>
     <style>
         :root {
             --bg-color: #0f172a;
@@ -71,12 +71,11 @@
             border-radius: 8px;
             margin-bottom: 1.75rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            transition: border-color 0.2s ease;
         }
 
         section:hover {
             border-color: #475569;
-            box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.3);
         }
 
         h2 {
@@ -86,54 +85,31 @@
             margin-bottom: 1rem;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 0.6rem;
-            letter-spacing: -0.01em;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-
-        th, td {
-            padding: 10px 14px;
-            text-align: left;
+        .project-card {
+            margin-bottom: 1.75rem;
+            padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--border-color);
         }
 
-        th {
-            background-color: #0f172a;
-            color: var(--accent-blue);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        td {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        td strong {
-            color: var(--text-primary);
-        }
-
-        .project {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .project:last-child {
+        .project-card:last-child {
             margin-bottom: 0;
             padding-bottom: 0;
             border-bottom: none;
         }
 
-        .project h3 {
-            margin: 0 0 0.4rem 0;
+        .project-title {
+            font-size: 1.25rem;
             color: var(--text-primary);
-            font-size: 1.15rem;
+            margin: 0 0 0.25rem 0;
+        }
+
+        .role-badge {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
         }
 
         .tech-pill {
@@ -145,106 +121,175 @@
             border-radius: 4px;
             font-size: 0.8rem;
             font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            margin-bottom: 0.6rem;
+            margin-right: 0.3rem;
+            margin-bottom: 0.5rem;
         }
 
-        p {
-            color: var(--text-secondary);
-            margin-top: 0;
+        .outcome-box {
+            background: #0f172a;
+            border-left: 3px solid var(--accent-blue);
+            padding: 0.75rem 1rem;
+            margin: 0.75rem 0;
+            border-radius: 0 4px 4px 0;
         }
 
-        ul {
-            color: var(--text-secondary);
-            padding-left: 1.2rem;
-            margin: 0.5rem 0;
+        .outcome-box strong {
+            color: var(--accent-blue);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: block;
+            margin-bottom: 0.2rem;
         }
 
-        li {
-            margin-bottom: 0.4rem;
-        }
-
-        li strong {
+        .outcome-box p {
+            margin: 0;
+            font-size: 0.9rem;
             color: var(--text-primary);
         }
 
-        .btn {
-            display: inline-block;
-            background: transparent;
+        p { color: var(--text-secondary); margin-top: 0; font-size: 0.95rem; }
+        ul { color: var(--text-secondary); padding-left: 1.2rem; }
+        li { margin-bottom: 0.3rem; }
+        a.link-btn {
             color: var(--accent-blue);
-            border: 1px solid var(--accent-blue);
-            padding: 8px 16px;
-            border-radius: 6px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            transition: all 0.2s ease;
-            margin-top: 0.5rem;
+            margin-right: 1rem;
         }
-
-        .btn:hover {
-            background: var(--accent-blue);
-            color: #0f172a;
-            box-shadow: 0 0 12px var(--accent-glow);
-        }
+        a.link-btn:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Macgregor Whiting</h1>
-        <p>IT Systems Administrator | Technical Project Portfolio</p>
+        <p class="subtitle">Technical Projects & Architecture Portfolio</p>
         <nav>
-            <a href="index.html">Home</a> | 
-            <a href="projects.html">Projects</a> | 
-            <a href="experience.html">Experience</a> | 
-            <a href="contact.html">Contact</a> | 
-            <a href="https://www.linkedin.com/in/macgregor-whiting" target="_blank">LinkedIn</a>
+            <a href="index.html">Home</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="experience.html">Experience & Goals</a>
+            <a href="contact.html">Principles & Contact</a>
+            <a href="https://www.linkedin.com/in/macgregor-whiting" target="_blank">LinkedIn &#x2197;</a>
         </nav>
     </header>
 
     <section>
-        <h2>Enterprise Zero-Trust Linux Infrastructure</h2>
-        <p>
-            <span class="tech-tag">Rocky Linux</span>
-            <span class="tech-tag">FreeIPA</span>
-            <span class="tech-tag">Kerberos</span>
-            <span class="tech-tag">Firewalld</span>
-            <span class="tech-tag">LVM</span>
-        </p>
-        <p>Designed and documented an enterprise Linux deployment centered around zero-trust security principles to eliminate implicit trust within internal networks.</p>
-        <ul>
-            <li><strong>Identity & Governance:</strong> Centralized authentication using FreeIPA and Kerberos with strict Role-Based Access Control (RBAC).</li>
-            <li><strong>Network Microsegmentation:</strong> Restricted lateral network movement using custom <code>firewalld</code> zones and isolated VLANs.</li>
-            <li><strong>Storage & System Management:</strong> Utilized Logical Volume Management (LVM) for scalable disk management and SSH key enforcement for remote administrative access.</li>
-        </ul>
+        <h2>Systems & Infrastructure Engineering</h2>
+
+        <div class="project-card">
+            <h3 class="project-title">Zero-Trust Linux Infrastructure Planning (Heritage Vault 2.0)</h3>
+            <div class="role-badge">Role: Infrastructure Architect & Lead Designer</div>
+            <div>
+                <span class="tech-pill">Rocky Linux</span>
+                <span class="tech-pill">FreeIPA</span>
+                <span class="tech-pill">Kerberos</span>
+                <span class="tech-pill">Firewalld</span>
+                <span class="tech-pill">LVM</span>
+                <span class="tech-pill">RBAC</span>
+            </div>
+            <p>Designed a zero-trust enterprise server topology to secure genealogical data. Eliminated implicit internal trust by integrating identity-centric access controls, microsegmentation, and continuous auditing to mitigate insider threats and data leakage.</p>
+            <div class="outcome-box">
+                <strong>Measurable Outcome & Impact</strong>
+                <p>Improved infrastructure security posture through mandatory RBAC, microsegmentation with Firewalld zones, and hardened SSH permissions. Scalability enhanced via logical volume management (LVM).</p>
+            </div>
+            <ul>
+                <li>Implemented identity-centric access controls using FreeIPA, Kerberos, and MFA.</li>
+                <li>Configured network microsegmentation via VLANs and Firewalld zones to block lateral movement.</li>
+                <li>Deployed identity-aware proxies for all application, storage, and administrative services.</li>
+            </ul>
+        </div>
+
+        <div class="project-card">
+            <h3 class="project-title">Segmented Enterprise Homelab Environment</h3>
+            <div class="role-badge">Role: Systems Administrator</div>
+            <div>
+                <span class="tech-pill">Proxmox VE</span>
+                <span class="tech-pill">pfSense</span>
+                <span class="tech-pill">Ubuntu Server</span>
+                <span class="tech-pill">Windows Server</span>
+                <span class="tech-pill">Bash</span>
+            </div>
+            <p>Architected and deployed a virtualized homelab environment simulating production enterprise networks with full network separation and automated maintenance workflows.</p>
+            <div class="outcome-box">
+                <strong>Measurable Outcome & Impact</strong>
+                <p>Reduced new VM deployment times through script automation and improved security isolated environments across segregated VLANs (Home, Work, Testing).</p>
+            </div>
+            <ul>
+                <li>Configured virtualized pfSense firewall routing and microsegmentation.</li>
+                <li>Automated VM deployment, snapshotting, and off-site backup schedules across Proxmox nodes.</li>
+            </ul>
+        </div>
     </section>
 
     <section>
-        <h2>Virtualized Enterprise Homelab Environment</h2>
-        <p>
-            <span class="tech-tag">Proxmox VE</span>
-            <span class="tech-tag">pfSense</span>
-            <span class="tech-tag">Ubuntu Server</span>
-            <span class="tech-tag">Windows Server</span>
-            <span class="tech-tag">VLAN Routing</span>
-        </p>
-        <p>Built a multi-node production-style virtualized laboratory to test network isolation, identity synchronization, and automated backup routines.</p>
-        <ul>
-            <li>Deployed pfSense to manage isolated subnets (LAN Home, LAN Work, LAN Testing) with explicit WAN/LAN firewall filtering.</li>
-            <li>Configured Proxmox VE for host virtualization, running guest Linux servers (systemd, cron workflows) and Windows environments.</li>
-            <li>Implemented continuous VM backup schedules and automated recovery testing.</li>
-        </ul>
+        <h2>Cloud Architecture & Systems Support</h2>
+
+        <div class="project-card">
+            <h3 class="project-title">Cloud Infrastructure & Identity Governance (Azure & AWS)</h3>
+            <div class="role-badge">Role: Cloud Engineer (Project Lead)</div>
+            <div>
+                <span class="tech-pill">Azure AD / Entra ID</span>
+                <span class="tech-pill">Azure VMs</span>
+                <span class="tech-pill">AWS IAM</span>
+                <span class="tech-pill">Azure Storage</span>
+            </div>
+            <p>Designed cost-optimized cloud architectures balancing performance, governance, and zero-trust security principles in Microsoft Azure and AWS environments.</p>
+            <div class="outcome-box">
+                <strong>Measurable Outcome & Impact</strong>
+                <p>Optimized cloud resource expenditure while enforcing strict access policies through Entra ID and IAM governance.</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3 class="project-title">Enterprise Microsoft 365 Email Migrations</h3>
+            <div class="role-badge">Role: Systems Administrator (Binary Empires)</div>
+            <div>
+                <span class="tech-pill">Microsoft 365</span>
+                <span class="tech-pill">DNS Management</span>
+                <span class="tech-pill">Entra ID Sync</span>
+                <span class="tech-pill">Authentication</span>
+            </div>
+            <p>Managed multi-tenant email cutovers and domain migrations to Microsoft 365, resolving complex identity synchronization and authentication issues under strict deadlines.</p>
+            <div class="outcome-box">
+                <strong>Measurable Outcome & Impact</strong>
+                <p>Drastically reduced email-related support tickets post-migration and streamlined remote employee onboarding and offboarding workflows.</p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3 class="project-title">AI Search Engine Implementation</h3>
+            <div class="role-badge">Role: Systems Administrator</div>
+            <div>
+                <span class="tech-pill">API Integration</span>
+                <span class="tech-pill">Indexing Pipelines</span>
+                <span class="tech-pill">Data Security</span>
+            </div>
+            <p>Configured and integrated an AI-powered search tool across internal repositories to reduce information lookup times and secure sensitive index access.</p>
+            <div class="outcome-box">
+                <strong>Measurable Outcome & Impact</strong>
+                <p>Accelerated internal information retrieval for staff and lowered repetitive support requests.</p>
+            </div>
+        </div>
     </section>
 
     <section>
-        <h2>Cloud Infrastructure & Identity Governance (Azure & AWS)</h2>
-        <p>
-            <span class="tech-tag">Azure AD / Entra ID</span>
-            <span class="tech-tag">Azure VMs</span>
-            <span class="tech-tag">AWS IAM</span>
-            <span class="tech-tag">AZ-104</span>
-        </p>
-        <p>Executed cloud resource deployments focusing on cost optimization, security boundaries, and centralized identity management aligned with the Microsoft Azure Administrator certification.</p>
+        <h2>Community & Service Engineering</h2>
+        <div class="project-card">
+            <h3 class="project-title">Remote Broadcast & AV Infrastructure Support</h3>
+            <div class="role-badge">Role: Technical Specialist / Volunteer</div>
+            <div>
+                <span class="tech-pill">AV Routing</span>
+                <span class="tech-pill">Network Troubleshooting</span>
+                <span class="tech-pill">Remote Management</span>
+            </div>
+            <p>Designed and maintained live hybrid broadcast setups for weekly congregational meetings, managing real-time network, audio, and video delivery for homebound members.</p>
+            <div class="outcome-box">
+                <strong>Measurable Outcome & Impact</strong>
+                <p>Eliminated technical interruptions during live streams and enabled high-reliability remote participation for non-ambulatory community members.</p>
+            </div>
+        </div>
     </section>
 
 </body>
