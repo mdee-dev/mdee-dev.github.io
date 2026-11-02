@@ -3,294 +3,766 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Explore Macgregor Whiting's professional IT projects, Linux and Proxmox home lab, cloud architecture designs, and volunteer technical work.">
+
     <title>Projects | Macgregor Whiting</title>
+
     <style>
         :root {
+            color-scheme: dark;
             --bg-color: #0f172a;
             --card-bg: #1e293b;
             --border-color: #334155;
             --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
+            --text-secondary: #bac7d9;
             --accent-blue: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--bg-color);
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2.5rem 1.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-color);
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-underline-offset: 4px;
+        }
+
+        a:hover {
+            color: #a5e5ff;
+        }
+
+        a:focus-visible,
+        summary:focus-visible {
+            outline: 3px solid #fbbf24;
+            outline-offset: 5px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            padding: 0.75rem 1rem;
+            color: var(--bg-color);
+            background: var(--text-primary);
+        }
+
+        .skip-link:focus {
+            top: 1rem;
         }
 
         header {
-            border-bottom: 1px solid var(--border-color);
             padding-bottom: 1.5rem;
             margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        h1 {
-            color: var(--text-primary);
-            font-size: 2.2rem;
-            margin: 0 0 0.3rem 0;
+        .site-name {
+            margin: 0 0 0.3rem;
+            font-size: 2rem;
+            line-height: 1.2;
+            font-weight: 700;
             letter-spacing: -0.025em;
         }
 
         .subtitle {
+            margin: 0 0 1rem;
             color: var(--accent-blue);
+            font-size: 1.05rem;
             font-weight: 600;
-            font-size: 1.1rem;
-            margin: 0 0 1rem 0;
         }
 
         nav {
-            margin-top: 1.2rem;
             display: flex;
-            gap: 1.2rem;
             flex-wrap: wrap;
+            gap: 0.75rem 1.2rem;
+            margin-top: 1.2rem;
         }
 
         nav a {
             color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
             font-size: 0.95rem;
-            transition: color 0.2s ease;
+            font-weight: 500;
+            text-decoration: none;
         }
 
-        nav a:hover, nav a.active {
+        nav a:hover,
+        nav a[aria-current="page"] {
             color: var(--accent-blue);
+        }
+
+        nav a[aria-current="page"] {
+            text-decoration: underline;
         }
 
         section {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 1.75rem;
-            border-radius: 8px;
-            margin-bottom: 1.75rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-            transition: border-color 0.2s ease;
+            margin-bottom: 2.5rem;
         }
 
-        section:hover {
-            border-color: #475569;
+        h1,
+        h2,
+        h3,
+        h4 {
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        h1 {
+            max-width: 800px;
+            margin: 0.75rem 0 1.25rem;
+            font-size: clamp(2.2rem, 5vw, 3.3rem);
         }
 
         h2 {
-            color: var(--text-primary);
-            font-size: 1.35rem;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.6rem;
+            margin: 0 0 0.75rem;
+            font-size: 1.6rem;
         }
 
-        .project-card {
-            margin-bottom: 1.75rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .project-card:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .project-title {
+        h3 {
+            margin: 0 0 0.75rem;
             font-size: 1.25rem;
-            color: var(--text-primary);
-            margin: 0 0 0.25rem 0;
         }
 
-        .role-badge {
+        h4 {
+            margin: 1.25rem 0 0.5rem;
+            font-size: 1rem;
+        }
+
+        p {
+            margin: 0 0 1rem;
             color: var(--text-secondary);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
         }
 
-        .tech-pill {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-blue);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            margin-right: 0.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .outcome-box {
-            background: #0f172a;
-            border-left: 3px solid var(--accent-blue);
-            padding: 0.75rem 1rem;
-            margin: 0.75rem 0;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .outcome-box strong {
-            color: var(--accent-blue);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            display: block;
-            margin-bottom: 0.2rem;
-        }
-
-        .outcome-box p {
-            margin: 0;
-            font-size: 0.9rem;
+        strong {
             color: var(--text-primary);
         }
 
-        p { color: var(--text-secondary); margin-top: 0; font-size: 0.95rem; }
-        ul { color: var(--text-secondary); padding-left: 1.2rem; }
-        li { margin-bottom: 0.3rem; }
-        a.link-btn {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-right: 1rem;
+        .hero {
+            padding: 2rem;
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(56, 189, 248, 0.12),
+                    transparent 60%
+                ),
+                var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
         }
-        a.link-btn:hover { text-decoration: underline; }
+
+        .eyebrow {
+            margin-bottom: 0.5rem;
+            color: var(--accent-blue);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .lead {
+            max-width: 70ch;
+            font-size: 1.08rem;
+        }
+
+        .section-intro {
+            max-width: 70ch;
+            margin-bottom: 1.25rem;
+        }
+
+        .jump-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 16px;
+            color: var(--accent-blue);
+            border: 1px solid var(--accent-blue);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            color: var(--bg-color);
+            background: var(--accent-blue);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .card {
+            min-width: 0;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+        }
+
+        .project-type {
+            margin-bottom: 0.75rem;
+            color: var(--accent-blue);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .role {
+            font-size: 0.85rem !important;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            padding: 0;
+            margin: 1rem 0;
+            list-style: none;
+        }
+
+        .tags li {
+            padding: 3px 8px;
+            color: var(--accent-blue);
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 4px;
+            font-size: 0.78rem;
+        }
+
+        details {
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        summary {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        details[open] summary {
+            margin-bottom: 1rem;
+        }
+
+        .project-list {
+            padding-left: 1.2rem;
+            margin: 0.5rem 0 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .project-list li {
+            margin-bottom: 0.6rem;
+        }
+
+        .scope {
+            font-size: 0.85rem !important;
+        }
+
+        .card > :last-child,
+        details > :last-child {
+            margin-bottom: 0;
+        }
+
+        .closing {
+            padding: 1.75rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+        }
+
+        footer {
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer p {
+            font-size: 0.85rem;
+        }
+
+        section[id] {
+            scroll-margin-top: 1.5rem;
+        }
+
+        @media (max-width: 650px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+
+            .site-name {
+                font-size: 1.8rem;
+            }
+
+            .hero,
+            .card,
+            .closing {
+                padding: 1.25rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
+
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header>
-        <h1>Macgregor Whiting</h1>
-        <p class="subtitle">Technical Projects & Architecture Portfolio</p>
-        <nav>
+        <p class="site-name">Macgregor Whiting</p>
+
+        <p class="subtitle">
+            IT Systems Administrator | Linux &amp; Cloud Infrastructure
+        </p>
+
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
-            <a href="projects.html" class="active">Projects</a>
-            <a href="experience.html">Experience & Goals</a>
+            <a href="projects.html" aria-current="page">Projects</a>
+            <a href="experience.html">Experience &amp; Education</a>
             <a href="contact.html">Contact</a>
-            <a href="https://www.linkedin.com/in/macgregor-whiting" target="_blank">LinkedIn &#x2197;</a>
+            <a href="https://www.linkedin.com/in/macgregor-whiting"
+               target="_blank"
+               rel="noopener noreferrer">
+                LinkedIn ↗
+            </a>
         </nav>
     </header>
 
-    <section>
-        <h2>Systems & Infrastructure Engineering</h2>
+    <main id="main">
+        <section class="hero" aria-labelledby="intro-heading">
+            <p class="eyebrow">Technical portfolio</p>
 
-        <div class="project-card">
-            <h3 class="project-title">Zero-Trust Linux Infrastructure Planning (Heritage Vault 2.0)</h3>
-            <div class="role-badge">Role: Student / Infrastructure Architect</div>
-            <div>
-                <span class="tech-pill">Rocky Linux</span>
-                <span class="tech-pill">FreeIPA</span>
-                <span class="tech-pill">Kerberos</span>
-                <span class="tech-pill">Firewalld</span>
-                <span class="tech-pill">LVM</span>
-                <span class="tech-pill">RBAC</span>
-            </div>
-            <p>Designed a zero-trust enterprise server topology to secure genealogical data. Eliminated implicit internal trust by integrating identity-centric access controls, microsegmentation, and continuous auditing to mitigate insider threats and data leakage.</p>
-            <div class="outcome-box">
-                <strong>Measurable Outcome & Impact</strong>
-                <p>Improved infrastructure security posture through mandatory RBAC, microsegmentation with Firewalld zones, and hardened SSH permissions. Scalability enhanced via logical volume management (LVM).</p>
-            </div>
-            <ul>
-                <li>Implemented identity-centric access controls using FreeIPA, Kerberos, and MFA.</li>
-                <li>Configured network microsegmentation via VLANs and Firewalld zones to block lateral movement.</li>
-                <li>Deployed identity-aware proxies for all application, storage, and administrative services.</li>
-            </ul>
-        </div>
+            <h1 id="intro-heading">
+                Practical work.<br>
+                Hands-on learning.
+            </h1>
 
-        <div class="project-card">
-            <h3 class="project-title">Segmented Homelab Environment</h3>
-            <div class="role-badge">Role: Systems Administrator</div>
-            <div>
-                <span class="tech-pill">Proxmox VE</span>
-                <span class="tech-pill">pfSense</span>
-                <span class="tech-pill">Ubuntu Server</span>
-                <span class="tech-pill">Windows Server</span>
-                <span class="tech-pill">Bash</span>
-            </div>
-            <p>Architected and deployed a virtualized homelab environment simulating production enterprise networks with full network separation and automated maintenance workflows.</p>
-            <div class="outcome-box">
-                <strong>Measurable Outcome & Impact</strong>
-                <p>Reduced new VM deployment times through script automation and improved security isolated environments across segregated VLANs (Home, Work, Testing).</p>
-            </div>
-            <ul>
-                <li>Configured virtualized pfSense firewall routing and microsegmentation.</li>
-                <li>Automated VM deployment, snapshotting, and off-site backup schedules across Proxmox nodes.</li>
-            </ul>
-        </div>
-    </section>
+            <p class="lead">
+                My projects combine professional IT experience with
+                infrastructure labs and academic architecture work.
+                Explore what I’ve configured, supported, and designed
+                across systems, networking, identity, and cloud platforms.
+            </p>
 
-    <section>
-        <h2>Cloud Architecture & Systems Support</h2>
+            <div class="jump-links" aria-label="Project categories">
+                <a class="btn" href="#professional">Professional work</a>
+                <a class="btn" href="#labs">Home lab</a>
+                <a class="btn" href="#academic">Academic designs</a>
+                <a class="btn" href="#service">Community service</a>
+            </div>
+        </section>
 
-        <div class="project-card">
-            <h3 class="project-title">Cloud Infrastructure & Identity Governance (Azure & AWS)</h3>
-            <div class="role-badge">Role: Student / Infrastructure Architect</div>
-            <div>
-                <span class="tech-pill">Azure AD / Entra ID</span>
-                <span class="tech-pill">Azure VMs</span>
-                <span class="tech-pill">AWS IAM</span>
-                <span class="tech-pill">Azure Storage</span>
-            </div>
-            <p>Designed cost-optimized cloud architectures balancing performance, governance, and zero-trust security principles in Microsoft Azure and AWS environments.</p>
-            <div class="outcome-box">
-                <strong>Measurable Outcome & Impact</strong>
-                <p>Optimized cloud resource expenditure while enforcing strict access policies through Entra ID and IAM governance.</p>
-            </div>
-        </div>
+        <section id="professional" aria-labelledby="professional-heading">
+            <h2 id="professional-heading">Professional projects</h2>
 
-        <div class="project-card">
-            <h3 class="project-title">Enterprise Microsoft 365 Email Migrations</h3>
-            <div class="role-badge">Role: Systems Administrator (Binary Empires)</div>
-            <div>
-                <span class="tech-pill">Microsoft 365</span>
-                <span class="tech-pill">DNS Management</span>
-                <span class="tech-pill">Entra ID Sync</span>
-                <span class="tech-pill">Authentication</span>
-            </div>
-            <p>Managed multi-tenant email cutovers and domain migrations to Microsoft 365, resolving complex identity synchronization and authentication issues under strict deadlines.</p>
-            <div class="outcome-box">
-                <strong>Measurable Outcome & Impact</strong>
-                <p>Drastically reduced email-related support tickets post-migration and streamlined remote employee onboarding and offboarding workflows.</p>
-            </div>
-        </div>
+            <p class="section-intro">
+                Work completed as part of my systems administration
+                responsibilities at Binary Empires.
+            </p>
 
-        <div class="project-card">
-            <h3 class="project-title">AI Search Engine Implementation</h3>
-            <div class="role-badge">Role: Systems Administrator (Binary Empires)</div>
-            <div>
-                <span class="tech-pill">API Integration</span>
-                <span class="tech-pill">Indexing Pipelines</span>
-                <span class="tech-pill">Data Security</span>
-            </div>
-            <p>Configured and integrated an AI-powered search tool across internal repositories to reduce information lookup times and secure sensitive index access.</p>
-            <div class="outcome-box">
-                <strong>Measurable Outcome & Impact</strong>
-                <p>Accelerated internal information retrieval for staff and lowered repetitive support requests.</p>
-            </div>
-        </div>
-    </section>
+            <div class="grid">
+                <article class="card">
+                    <p class="project-type">Professional experience</p>
 
-    <section>
-        <h2>Community & Service Engineering</h2>
-        <div class="project-card">
-            <h3 class="project-title">Remote Broadcast & AV Infrastructure Support</h3>
-            <div class="role-badge">Role: Technical Specialist / Volunteer</div>
-            <div>
-                <span class="tech-pill">AV Routing</span>
-                <span class="tech-pill">Network Troubleshooting</span>
-                <span class="tech-pill">Remote Management</span>
-            </div>
-            <p>Designed and maintained live hybrid broadcast setups for weekly congregational meetings, managing real-time network, audio, and video delivery for homebound members.</p>
-            <div class="outcome-box">
-                <strong>Measurable Outcome & Impact</strong>
-                <p>Eliminated technical interruptions during live streams and enabled high-reliability remote participation for non-ambulatory community members.</p>
-            </div>
-        </div>
-    </section>
+                    <h3>Microsoft 365 email migrations</h3>
 
+                    <p class="role">
+                        Role: Systems administration · Binary Empires
+                    </p>
+
+                    <p>
+                        Managed email cutovers and domain migrations to
+                        Microsoft 365, addressing identity synchronization,
+                        authentication, and DNS issues.
+                    </p>
+
+                    <ul class="tags" aria-label="Migration technologies">
+                        <li>Microsoft 365</li>
+                        <li>DNS</li>
+                        <li>Entra ID</li>
+                        <li>Authentication</li>
+                    </ul>
+
+                    <details>
+                        <summary>Explore the work</summary>
+
+                        <h4>My contribution</h4>
+
+                        <ul class="project-list">
+                            <li>
+                                Managed email cutovers and domain migration
+                                work across client environments.
+                            </li>
+                            <li>
+                                Resolved identity synchronization and
+                                authentication issues.
+                            </li>
+                            <li>
+                                Worked with DNS configuration associated
+                                with email migration.
+                            </li>
+                        </ul>
+
+                        <h4>Relevant skills</h4>
+
+                        <p>
+                            Microsoft 365 administration, identity
+                            troubleshooting, DNS management, and
+                            supporting users through service changes.
+                        </p>
+                    </details>
+                </article>
+
+                <article class="card">
+                    <p class="project-type">Professional experience</p>
+
+                    <h3>Internal AI search integration</h3>
+
+                    <p class="role">
+                        Role: Systems administration · Binary Empires
+                    </p>
+
+                    <p>
+                        Configured and integrated an AI-powered search
+                        tool across internal repositories to support
+                        information discovery and controlled access
+                        to indexed content.
+                    </p>
+
+                    <ul class="tags" aria-label="Search project technologies">
+                        <li>Search integration</li>
+                        <li>Indexing</li>
+                        <li>Access control</li>
+                    </ul>
+
+                    <details>
+                        <summary>Explore the work</summary>
+
+                        <h4>My contribution</h4>
+
+                        <ul class="project-list">
+                            <li>
+                                Configured the search tool for internal
+                                information sources.
+                            </li>
+                            <li>
+                                Supported integration and indexing of
+                                repository content.
+                            </li>
+                            <li>
+                                Addressed access to sensitive indexed
+                                information.
+                            </li>
+                        </ul>
+
+                        <h4>Relevant skills</h4>
+
+                        <p>
+                            Application integration, information
+                            organization, configuration, and
+                            data access considerations.
+                        </p>
+                    </details>
+                </article>
+            </div>
+        </section>
+
+        <section id="labs" aria-labelledby="labs-heading">
+            <h2 id="labs-heading">Home lab and infrastructure practice</h2>
+
+            <p class="section-intro">
+                Environments I use to build practical administration
+                skills and work with systems beyond my daily support role.
+            </p>
+
+            <article class="card">
+                <p class="project-type">Hands-on home lab</p>
+
+                <h3>Segmented Proxmox environment</h3>
+
+                <p class="role">
+                    Role: Lab owner and administrator
+                </p>
+
+                <p>
+                    Built a virtualized environment using Proxmox VE,
+                    Linux, Windows Server, and pfSense. The lab includes
+                    separate Home, Work, and Testing networks, along
+                    with services for DNS, remote access, and
+                    Windows domain administration.
+                </p>
+
+                <ul class="tags" aria-label="Home lab technologies">
+                    <li>Proxmox VE</li>
+                    <li>pfSense</li>
+                    <li>Ubuntu Server</li>
+                    <li>Windows Server</li>
+                    <li>VLANs</li>
+                    <li>OpenVPN</li>
+                    <li>DNS</li>
+                </ul>
+
+                <details>
+                    <summary>Explore the configuration</summary>
+
+                    <h4>What I configured</h4>
+
+                    <ul class="project-list">
+                        <li>
+                            Windows, macOS, and Linux virtual machines,
+                            alongside container workloads.
+                        </li>
+                        <li>
+                            pfSense routing and VLAN separation for
+                            Home, Work, and Testing environments.
+                        </li>
+                        <li>
+                            OpenVPN with two-factor authentication
+                            and configured client devices.
+                        </li>
+                        <li>
+                            DNS sinkhole and recursive DNS services
+                            to filter advertising and malicious domains.
+                        </li>
+                        <li>
+                            Windows Server domain services and
+                            domain joined lab computers.
+                        </li>
+                    </ul>
+
+                    <h4>Skills developed</h4>
+
+                    <p>
+                        VM provisioning, Linux and Windows administration,
+                        network segmentation, DNS configuration,
+                        VPN setup, and identity management.
+                    </p>
+                </details>
+            </article>
+        </section>
+
+        <section id="academic" aria-labelledby="academic-heading">
+            <h2 id="academic-heading">Academic architecture projects</h2>
+
+            <p class="section-intro">
+                Design work exploring infrastructure decisions,
+                access controls, and cloud governance.
+            </p>
+
+            <div class="grid">
+                <article class="card">
+                    <p class="project-type">Academic design</p>
+
+                    <h3>Zero-trust Linux infrastructure</h3>
+
+                    <p class="role">
+                        Heritage Vault 2.0 · Student architecture project
+                    </p>
+
+                    <p>
+                        Designed a Linux server topology for protecting
+                        genealogical data through identity management,
+                        role-based access, service separation, and
+                        auditing.
+                    </p>
+
+                    <ul class="tags" aria-label="Linux design technologies">
+                        <li>Rocky Linux</li>
+                        <li>FreeIPA</li>
+                        <li>Kerberos</li>
+                        <li>Firewalld</li>
+                        <li>LVM</li>
+                        <li>RBAC</li>
+                    </ul>
+
+                    <details>
+                        <summary>Explore the design</summary>
+
+                        <h4>Architecture decisions</h4>
+
+                        <ul class="project-list">
+                            <li>
+                                Planned identity controls using FreeIPA,
+                                Kerberos, MFA, and role-based access.
+                            </li>
+                            <li>
+                                Designed VLAN and Firewalld zone
+                                boundaries to limit lateral access.
+                            </li>
+                            <li>
+                                Included identity-aware proxies for
+                                application, storage, and
+                                administrative services.
+                            </li>
+                            <li>
+                                Incorporated SSH hardening,
+                                log auditing, and LVM storage planning.
+                            </li>
+                        </ul>
+
+                        <p class="scope">
+                            Scope: Infrastructure architecture and
+                            planning.
+                        </p>
+                    </details>
+                </article>
+
+                <article class="card">
+                    <p class="project-type">Academic design</p>
+
+                    <h3>Cloud infrastructure and identity governance</h3>
+
+                    <p class="role">
+                        Student architecture project · Azure and AWS
+                    </p>
+
+                    <p>
+                        Designed cloud architectures considering
+                        performance, resource costs, identity governance,
+                        and security requirements.
+                    </p>
+
+                    <ul class="tags" aria-label="Cloud design technologies">
+                        <li>Azure</li>
+                        <li>Entra ID</li>
+                        <li>Azure VMs</li>
+                        <li>Azure Storage</li>
+                        <li>AWS IAM</li>
+                    </ul>
+
+                    <details>
+                        <summary>Explore the design</summary>
+
+                        <h4>Design focus</h4>
+
+                        <ul class="project-list">
+                            <li>
+                                Considered resource selection in relation
+                                to cost and performance requirements.
+                            </li>
+                            <li>
+                                Incorporated identity and access
+                                governance using Entra ID and AWS IAM.
+                            </li>
+                            <li>
+                                Applied zero-trust principles to
+                                cloud architecture planning.
+                            </li>
+                        </ul>
+
+                        <p class="scope">
+                            Scope: Academic architecture and governance
+                            design.
+                        </p>
+                    </details>
+                </article>
+            </div>
+        </section>
+
+        <section id="service" aria-labelledby="service-heading">
+            <h2 id="service-heading">Community technical service</h2>
+
+            <article class="card">
+                <p class="project-type">Volunteer experience</p>
+
+                <h3>Hybrid broadcast and AV support</h3>
+
+                <p class="role">
+                    Role: Volunteer technical support
+                </p>
+
+                <p>
+                    Designed and maintained broadcast setups for weekly
+                    congregational meetings, helping homebound members
+                    participate remotely through live audio and video.
+                </p>
+
+                <ul class="tags" aria-label="Broadcast technologies">
+                    <li>Audio and video</li>
+                    <li>Network troubleshooting</li>
+                    <li>Remote participation</li>
+                </ul>
+
+                <details>
+                    <summary>Explore the work</summary>
+
+                    <h4>My contribution</h4>
+
+                    <ul class="project-list">
+                        <li>
+                            Set up and maintained audio, video,
+                            and network connections for hybrid meetings.
+                        </li>
+                        <li>
+                            Supported live delivery and investigated
+                            technical issues.
+                        </li>
+                        <li>
+                            Helped provide access for members unable
+                            to attend in person.
+                        </li>
+                    </ul>
+
+                    <h4>Relevant skills</h4>
+
+                    <p>
+                        Live troubleshooting, AV configuration,
+                        networking, and communicating technical
+                        information to users.
+                    </p>
+                </details>
+            </article>
+        </section>
+
+        <section class="closing" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Let’s discuss the details</h2>
+
+            <p>
+                I’m happy to talk through my role, the tools involved,
+                and the technical decisions behind these projects.
+            </p>
+
+            <a class="btn" href="contact.html">Get in touch →</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            Macgregor Whiting | Faith, South Dakota |
+            <a href="https://github.com/mdee-dev"
+               target="_blank"
+               rel="noopener noreferrer">GitHub</a>
+        </p>
+    </footer>
 </body>
 </html>
