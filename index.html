@@ -3,252 +3,621 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Macgregor Whiting is an IT systems administrator with MSP experience, Azure certification, and hands-on Linux, networking, and virtualization projects.">
+
     <title>Macgregor Whiting | IT Systems Administrator</title>
+
     <style>
         :root {
+            color-scheme: dark;
             --bg-color: #0f172a;
             --card-bg: #1e293b;
             --border-color: #334155;
             --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
+            --text-secondary: #bac7d9;
             --accent-blue: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--bg-color);
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2.5rem 1.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-color);
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-underline-offset: 4px;
+        }
+
+        a:hover {
+            color: #a5e5ff;
+        }
+
+        a:focus-visible {
+            outline: 3px solid #fbbf24;
+            outline-offset: 5px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            padding: 0.75rem 1rem;
+            color: var(--bg-color);
+            background: var(--text-primary);
+        }
+
+        .skip-link:focus {
+            top: 1rem;
         }
 
         header {
-            border-bottom: 1px solid var(--border-color);
             padding-bottom: 1.5rem;
             margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        h1 {
-            color: var(--text-primary);
-            font-size: 2.2rem;
-            margin: 0 0 0.3rem 0;
+        .site-name {
+            margin: 0 0 0.3rem;
+            font-size: 2rem;
+            line-height: 1.2;
+            font-weight: 700;
             letter-spacing: -0.025em;
         }
 
         .subtitle {
+            margin: 0 0 1rem;
             color: var(--accent-blue);
+            font-size: 1.05rem;
             font-weight: 600;
-            font-size: 1.1rem;
-            margin: 0 0 1rem 0;
         }
 
         nav {
-            margin-top: 1.2rem;
             display: flex;
-            gap: 1.2rem;
             flex-wrap: wrap;
+            gap: 0.75rem 1.2rem;
+            margin-top: 1.2rem;
         }
 
         nav a {
             color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
             font-size: 0.95rem;
-            transition: color 0.2s ease;
+            font-weight: 500;
+            text-decoration: none;
         }
 
-        nav a:hover, nav a.active {
+        nav a:hover,
+        nav a[aria-current="page"] {
             color: var(--accent-blue);
+        }
+
+        nav a[aria-current="page"] {
+            text-decoration: underline;
         }
 
         section {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 1.75rem;
-            border-radius: 8px;
-            margin-bottom: 1.75rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 2.5rem;
         }
 
-        section:hover {
-            border-color: #475569;
-            box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.3);
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        h1 {
+            max-width: 800px;
+            margin: 0.75rem 0 1.25rem;
+            font-size: clamp(2.2rem, 5vw, 3.3rem);
         }
 
         h2 {
-            color: var(--text-primary);
-            font-size: 1.35rem;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.6rem;
-            letter-spacing: -0.01em;
+            margin: 0 0 1.25rem;
+            font-size: 1.6rem;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-
-        th, td {
-            padding: 10px 14px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        th {
-            background-color: #0f172a;
-            color: var(--accent-blue);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        td {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        td strong {
-            color: var(--text-primary);
-        }
-
-        .project {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .project:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .project h3 {
-            margin: 0 0 0.4rem 0;
-            color: var(--text-primary);
+        h3 {
+            margin: 0 0 0.75rem;
             font-size: 1.15rem;
         }
 
-        .tech-pill {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-blue);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            margin-bottom: 0.6rem;
-        }
-
         p {
+            margin: 0 0 1rem;
             color: var(--text-secondary);
-            margin-top: 0;
         }
 
-        ul {
-            color: var(--text-secondary);
-            padding-left: 1.2rem;
-            margin: 0.5rem 0;
-        }
-
-        li {
-            margin-bottom: 0.4rem;
-        }
-
-        li strong {
+        strong {
             color: var(--text-primary);
+        }
+
+        .hero {
+            padding: 2rem;
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(56, 189, 248, 0.12),
+                    transparent 60%
+                ),
+                var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+
+        .eyebrow {
+            margin-bottom: 0.5rem;
+            color: var(--accent-blue);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .lead {
+            max-width: 70ch;
+            font-size: 1.08rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
         }
 
         .btn {
             display: inline-block;
-            background: transparent;
+            padding: 10px 16px;
             color: var(--accent-blue);
             border: 1px solid var(--accent-blue);
-            padding: 8px 16px;
             border-radius: 6px;
-            text-decoration: none;
             font-size: 0.9rem;
             font-weight: 600;
-            transition: all 0.2s ease;
-            margin-top: 0.5rem;
+            text-decoration: none;
         }
 
         .btn:hover {
+            color: var(--bg-color);
             background: var(--accent-blue);
-            color: #0f172a;
-            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        .btn-primary {
+            color: var(--bg-color);
+            background: var(--accent-blue);
+        }
+
+        .btn-primary:hover {
+            color: var(--bg-color);
+            background: #7dd3fc;
+            border-color: #7dd3fc;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 1.75rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .highlight strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 1.05rem;
+        }
+
+        .highlight p {
+            margin: 0;
+            font-size: 0.85rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            min-width: 0;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+        }
+
+        .card > :last-child {
+            margin-bottom: 0;
+        }
+
+        .project-type {
+            margin-bottom: 0.75rem;
+            color: var(--accent-blue);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            padding: 0;
+            margin: 1rem 0 0;
+            list-style: none;
+        }
+
+        .tags li {
+            padding: 3px 8px;
+            color: var(--accent-blue);
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 4px;
+            font-size: 0.78rem;
+        }
+
+        .section-heading {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 0;
+        }
+
+        .text-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .credentials {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .credentials li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .credentials li:first-child {
+            padding-top: 0;
+        }
+
+        .credentials li:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .credentials strong,
+        .credentials span {
+            display: block;
+        }
+
+        .credentials span {
+            margin-top: 0.25rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .closing {
+            padding: 1.75rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+        }
+
+        footer {
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer p {
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 650px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+
+            .site-name {
+                font-size: 1.8rem;
+            }
+
+            .hero,
+            .card,
+            .closing {
+                padding: 1.25rem;
+            }
+
+            .grid,
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .highlights {
+                gap: 1.25rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
         }
     </style>
 </head>
+
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header>
-        <h1>Macgregor Whiting</h1>
-        <p class="subtitle">IT Systems Administrator | Linux & Cloud Infrastructure</p>
-        <nav>
-            <a href="index.html" class="active">Home</a>
+        <p class="site-name">Macgregor Whiting</p>
+
+        <p class="subtitle">
+            IT Systems Administrator | Linux &amp; Cloud Infrastructure
+        </p>
+
+        <nav aria-label="Main navigation">
+            <a href="index.html" aria-current="page">Home</a>
             <a href="projects.html">Projects</a>
-            <a href="experience.html">Experience & Goals</a>
+            <a href="experience.html">Experience &amp; Education</a>
             <a href="contact.html">Contact</a>
-            <a href="https://www.linkedin.com/in/macgregor-whiting" target="_blank">LinkedIn &#x2197;</a>
+            <a href="https://www.linkedin.com/in/macgregor-whiting"
+               target="_blank"
+               rel="noopener noreferrer">
+                LinkedIn ↗
+            </a>
         </nav>
     </header>
 
-    <section>
-        <h2>Professional Summary</h2>
-        <p>Results-driven IT Systems Administrator with 5+ years of experience supporting remote environments, managing endpoints, and administering Microsoft 365 and hybrid cloud systems. Skilled in Linux server administration, zero-trust network architectures, virtualization, and cloud governance. Certified Microsoft Azure Administrator (AZ-104).</p>
-    </section>
+    <main id="main">
+        <section class="hero" aria-labelledby="intro-heading">
+            <p class="eyebrow">Systems administration · Linux · Cloud</p>
 
-    <section>
-        <h2>Technical Capabilities</h2>
-        <table>
-            <tr><th>Domain</th><th>Skills & Tools</th></tr>
-            <tr><td><strong>Linux & Systems</strong></td><td>Ubuntu Server, Rocky Linux, systemd, SSH Hardening, LVM, RAID, Bash, Cron</td></tr>
-            <tr><td><strong>Cloud & Identity</strong></td><td>Azure AD / Entra ID, Azure VMs, Azure Storage, Microsoft 365 Admin Center, MFA</td></tr>
-            <tr><td><strong>Networking & Security</strong></td><td>TCP/IP, DNS, DHCP, VPN, Firewalls (pfSense, Firewalld), Zero-Trust Architecture</td></tr>
-            <tr><td><strong>Virtualization</strong></td><td>Proxmox VE, Hyper-V, Git, Basic Python</td></tr>
-        </table>
-    </section>
+            <h1 id="intro-heading">
+                Hands-on IT experience.<br>
+                A growing focus on infrastructure.
+            </h1>
 
-    <section>
-        <h2>Featured Projects</h2>
-        <div class="project">
-            <h3>Zero-Trust Linux Infrastructure Planning</h3>
-            <span class="tech-pill">Rocky Linux</span>
-            <span class="tech-pill">FreeIPA</span>
-            <span class="tech-pill">Kerberos</span>
-            <span class="tech-pill">Firewalld</span>
-            <span class="tech-pill">LVM</span>
-            <p>Designed an enterprise-grade Linux server topology incorporating identity-centric access controls, microsegmentation via VLANs, identity-aware proxies, and automated log auditing.</p>
-        </div>
+            <p class="lead">
+                I’m an IT systems administrator with 5+ years of MSP
+                experience supporting remote users, managing endpoints,
+                and administering Microsoft 365. I’m building on that
+                foundation through Linux, virtualization, networking,
+                and cloud projects.
+            </p>
 
-        <div class="project">
-            <h3>Segmented Enterprise Homelab Environment</h3>
-            <span class="tech-pill">Proxmox VE</span>
-            <span class="tech-pill">pfSense</span>
-            <span class="tech-pill">Ubuntu Server</span>
-            <span class="tech-pill">Windows Server</span>
-            <p>Deployed a multi-node virtualized environment simulating production networks with pfSense microsegmentation (Home, Work, Testing) and automated VM backups.</p>
-        </div>
-        <a href="projects.html" class="btn">View All Deep-Dive Projects &rarr;</a>
-    </section>
+            <div class="actions">
+                <a class="btn btn-primary" href="projects.html">
+                    Explore my projects →
+                </a>
 
-    <section>
-        <h2>Certifications & Education</h2>
-        <ul>
-            <li><strong>Microsoft Certified: Azure Administrator Associate (AZ-104)</strong> (Apr 2026)</li>
-            <li><strong>Bachelor of Applied Science - Information Technology</strong> — Ensign College (Oct 2026)</li>
-            <li><strong>Associate of Applied Science - Information Technology</strong> — Ensign College (Apr 2026)</li>
-        </ul>
-    </section>
+                <a class="btn" href="experience.html">
+                    View my experience
+                </a>
 
+                <a class="btn" href="contact.html">
+                    Get in touch
+                </a>
+            </div>
+
+            <div class="highlights">
+                <div class="highlight">
+                    <strong>5+ years of experience</strong>
+                    <p>MSP technical support and systems administration</p>
+                </div>
+
+                <div class="highlight">
+                    <strong>BAS Information Technology</strong>
+                    <p>Ensign College · October 2026</p>
+                </div>
+
+                <div class="highlight">
+                    <strong>Azure Administrator Associate</strong>
+                    <p>Microsoft Certified · AZ-104</p>
+                </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="capabilities-heading">
+            <h2 id="capabilities-heading">What I bring to a team</h2>
+
+            <div class="grid">
+                <article class="card">
+                    <h3>Systems administration and support</h3>
+
+                    <p>
+                        Practical experience supporting remote users,
+                        provisioning endpoints, managing patches, and
+                        maintaining off-site backups in an MSP environment.
+                    </p>
+
+                    <ul class="tags" aria-label="Systems skills">
+                        <li>Windows</li>
+                        <li>macOS</li>
+                        <li>RMM</li>
+                        <li>Endpoint support</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h3>Microsoft 365 and identity</h3>
+
+                    <p>
+                        Microsoft 365 administration, user provisioning,
+                        application troubleshooting, and configuring
+                        Entra joined and Windows domain joined computers.
+                    </p>
+
+                    <ul class="tags" aria-label="Cloud and identity skills">
+                        <li>Microsoft 365</li>
+                        <li>Entra ID</li>
+                        <li>Exchange</li>
+                        <li>MFA</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h3>Networking and troubleshooting</h3>
+
+                    <p>
+                        Hands-on work configuring VPN access, troubleshooting
+                        firewall restrictions, documenting networks, and
+                        resolving connectivity issues.
+                    </p>
+
+                    <ul class="tags" aria-label="Networking skills">
+                        <li>TCP/IP</li>
+                        <li>DNS</li>
+                        <li>VPN</li>
+                        <li>FortiGate</li>
+                        <li>pfSense</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h3>Linux and virtualization labs</h3>
+
+                    <p>
+                        Hands-on lab practice with Linux servers,
+                        virtual machines, containers, network segmentation,
+                        and Bash scripting.
+                    </p>
+
+                    <ul class="tags" aria-label="Lab technologies">
+                        <li>Ubuntu Server</li>
+                        <li>Rocky Linux</li>
+                        <li>Proxmox VE</li>
+                        <li>Bash</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section aria-labelledby="projects-heading">
+            <div class="section-heading">
+                <h2 id="projects-heading">Featured projects</h2>
+
+                <a class="text-link" href="projects.html">
+                    View all projects →
+                </a>
+            </div>
+
+            <div class="grid">
+                <article class="card">
+                    <p class="project-type">Hands-on home lab</p>
+
+                    <h3>Segmented Proxmox environment</h3>
+
+                    <p>
+                        Built a virtualized lab with Linux and Windows
+                        systems, pfSense routing, and separate Home, Work,
+                        and Testing networks. Configured supporting services
+                        including DNS, a Windows domain, and OpenVPN with
+                        two-factor authentication.
+                    </p>
+
+                    <ul class="tags" aria-label="Home lab technologies">
+                        <li>Proxmox VE</li>
+                        <li>pfSense</li>
+                        <li>VLANs</li>
+                        <li>Windows Server</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <p class="project-type">Academic architecture project</p>
+
+                    <h3>Zero-trust Linux infrastructure design</h3>
+
+                    <p>
+                        Designed a Linux infrastructure plan for protecting
+                        genealogical data. The architecture covers identity
+                        management, role-based access, network segmentation,
+                        administrative access, and flexible storage.
+                    </p>
+
+                    <ul class="tags" aria-label="Linux design technologies">
+                        <li>Rocky Linux</li>
+                        <li>FreeIPA</li>
+                        <li>Kerberos</li>
+                        <li>Firewalld</li>
+                        <li>LVM</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section aria-labelledby="education-heading">
+            <h2 id="education-heading">Education and certification</h2>
+
+            <div class="card">
+                <ul class="credentials">
+                    <li>
+                        <strong>
+                            Bachelor of Applied Science in Information Technology
+                        </strong>
+                        <span>Ensign College · October 2026</span>
+                    </li>
+
+                    <li>
+                        <strong>
+                            Microsoft Certified: Azure Administrator Associate
+                        </strong>
+                        <span>AZ-104 · Issued April 2026</span>
+                    </li>
+
+                    <li>
+                        <strong>
+                            Associate of Applied Science in Information Technology
+                        </strong>
+                        <span>Ensign College · April 2026</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="closing" aria-labelledby="next-heading">
+            <h2 id="next-heading">Building on a practical foundation</h2>
+
+            <p>
+                I’m continuing to strengthen my Linux administration and
+                automation skills, with RHCSA as my next certification goal.
+                I’m interested in opportunities where I can contribute my
+                systems support experience while growing into deeper
+                infrastructure responsibilities.
+            </p>
+
+            <a class="btn" href="contact.html">Let’s connect →</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            Macgregor Whiting | Faith, South Dakota |
+            <a href="https://github.com/mdee-dev"
+               target="_blank"
+               rel="noopener noreferrer">GitHub</a>
+        </p>
+    </footer>
 </body>
 </html>
