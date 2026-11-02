@@ -3,214 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Connect with Macgregor Whiting about IT systems administration, Linux, and cloud infrastructure opportunities.">
+
     <title>Contact | Macgregor Whiting</title>
+
     <style>
         :root {
+            color-scheme: dark;
             --bg-color: #0f172a;
             --card-bg: #1e293b;
             --border-color: #334155;
             --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
+            --text-secondary: #bac7d9;
             --accent-blue: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--bg-color);
             max-width: 900px;
             margin: 0 auto;
             padding: 2.5rem 1.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-color);
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-underline-offset: 4px;
+        }
+
+        a:hover {
+            color: #a5e5ff;
+        }
+
+        a:focus-visible {
+            outline: 3px solid #fbbf24;
+            outline-offset: 5px;
         }
 
         header {
-            border-bottom: 1px solid var(--border-color);
             padding-bottom: 1.5rem;
             margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
         h1 {
-            color: var(--text-primary);
+            margin: 0 0 0.3rem;
             font-size: 2.2rem;
-            margin: 0 0 0.3rem 0;
+            line-height: 1.2;
             letter-spacing: -0.025em;
         }
 
         .subtitle {
+            margin: 0 0 1rem;
             color: var(--accent-blue);
-            font-weight: 600;
             font-size: 1.1rem;
-            margin: 0 0 1rem 0;
+            font-weight: 600;
         }
 
         nav {
-            margin-top: 1.2rem;
             display: flex;
-            gap: 1.2rem;
             flex-wrap: wrap;
+            gap: 0.75rem 1.2rem;
+            margin-top: 1.2rem;
         }
 
         nav a {
             color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
             font-size: 0.95rem;
-            transition: color 0.2s ease;
+            font-weight: 500;
+            text-decoration: none;
         }
 
-        nav a:hover, nav a.active {
+        nav a:hover,
+        nav a[aria-current="page"] {
             color: var(--accent-blue);
+        }
+
+        nav a[aria-current="page"] {
+            text-decoration: underline;
         }
 
         section {
+            padding: 1.75rem;
+            margin-bottom: 1.75rem;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 1.75rem;
-            border-radius: 8px;
-            margin-bottom: 1.75rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        section:hover {
-            border-color: #475569;
-            box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
         }
 
         h2 {
-            color: var(--text-primary);
-            font-size: 1.35rem;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.6rem;
-            letter-spacing: -0.01em;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-
-        th, td {
-            padding: 10px 14px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        th {
-            background-color: #0f172a;
-            color: var(--accent-blue);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        td {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        td strong {
-            color: var(--text-primary);
-        }
-
-        .project {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .project:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .project h3 {
-            margin: 0 0 0.4rem 0;
-            color: var(--text-primary);
-            font-size: 1.15rem;
-        }
-
-        .tech-pill {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-blue);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            margin-bottom: 0.6rem;
+            margin: 0 0 1rem;
+            font-size: 1.65rem;
+            line-height: 1.25;
+            letter-spacing: -0.025em;
         }
 
         p {
+            margin: 0 0 1rem;
             color: var(--text-secondary);
-            margin-top: 0;
         }
 
-        ul {
-            color: var(--text-secondary);
-            padding-left: 1.2rem;
-            margin: 0.5rem 0;
+        .intro {
+            max-width: 65ch;
+            font-size: 1.05rem;
         }
 
-        li {
-            margin-bottom: 0.4rem;
+        .contact-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            padding: 0;
+            margin: 1.75rem 0;
+            list-style: none;
         }
 
-        li strong {
-            color: var(--text-primary);
+        .contact-list li {
+            min-width: 0;
+            padding: 1.25rem;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .contact-list h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-list p {
+            font-size: 0.95rem;
+        }
+
+        .contact-list a {
+            overflow-wrap: anywhere;
         }
 
         .btn {
             display: inline-block;
-            background: transparent;
+            padding: 10px 16px;
             color: var(--accent-blue);
             border: 1px solid var(--accent-blue);
-            padding: 8px 16px;
             border-radius: 6px;
-            text-decoration: none;
             font-size: 0.9rem;
             font-weight: 600;
-            transition: all 0.2s ease;
-            margin-top: 0.5rem;
+            text-decoration: none;
         }
 
         .btn:hover {
+            color: var(--bg-color);
             background: var(--accent-blue);
-            color: #0f172a;
-            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        .location {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer p {
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            section {
+                padding: 1.25rem;
+            }
+
+            .contact-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-<body>
 
+<body>
     <header>
         <h1>Macgregor Whiting</h1>
-        <p class="subtitle">IT Systems Administrator | Linux & Cloud Infrastructure</p>
-        <nav>
-            <a href="index.html">Home</a> | 
-            <a href="projects.html">Projects</a> | 
-            <a href="experience.html">Experience & Goals</a> | 
-            <a href="contact.html">Contact</a> | 
-            <a href="https://www.linkedin.com/in/macgregor-whiting" target="_blank">LinkedIn</a>
+
+        <p class="subtitle">
+            IT Systems Administrator | Linux &amp; Cloud Infrastructure
+        </p>
+
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="experience.html">Experience &amp; Education</a>
+            <a href="contact.html" aria-current="page">Contact</a>
+            <a href="https://www.linkedin.com/in/macgregor-whiting"
+               target="_blank"
+               rel="noopener noreferrer">
+                LinkedIn ↗
+            </a>
         </nav>
     </header>
 
-    <section>
-        <h2>Get in Touch</h2>
-        <p>Feel free to reach out regarding IT Systems Administration roles, cloud architecture projects, or general inquiries.</p>
-        
-        <ul class="contact-list">
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/macgregor-whiting" target="_blank">linkedin.com/in/macgregor-whiting</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/mdee-dev" target="_blank">github.com/mdee-dev</a></li>
-        </ul>
-    </section>
+    <main>
+        <section aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Let’s connect</h2>
 
+            <p class="intro">
+                I’m interested in systems administration, Linux, and cloud
+                infrastructure opportunities where I can contribute my MSP
+                experience and continue developing my technical skills.
+            </p>
+
+            <p>
+                To discuss an opportunity or ask about my experience,
+                connect with me on LinkedIn. You can also explore my
+                repositories and technical work on GitHub.
+            </p>
+
+            <ul class="contact-list">
+                <li>
+                    <h3>LinkedIn</h3>
+                    <p>
+                        Connect with me about career opportunities,
+                        professional experience, or technical projects.
+                    </p>
+
+                    <a class="btn"
+                       href="https://www.linkedin.com/in/macgregor-whiting"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Connect on LinkedIn ↗
+                    </a>
+                </li>
+
+                <li>
+                    <h3>GitHub</h3>
+                    <p>
+                        Explore my repositories and follow my work
+                        as I build my infrastructure skills.
+                    </p>
+
+                    <a class="btn"
+                       href="https://github.com/mdee-dev"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View GitHub profile ↗
+                    </a>
+                </li>
+            </ul>
+
+            <p class="location">
+                Based in Faith, South Dakota, with experience supporting
+                remote environments.
+            </p>
+        </section>
+
+        <section aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Explore my technical work</h2>
+
+            <p>
+                See my professional projects, home lab implementations,
+                and academic infrastructure designs.
+            </p>
+
+            <a class="btn" href="projects.html">View projects →</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>Macgregor Whiting | IT Systems Administration</p>
+    </footer>
 </body>
 </html>
