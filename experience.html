@@ -3,175 +3,768 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience & Roadmap | Macgregor Whiting</title>
+
+    <meta name="description"
+          content="Explore Macgregor Whiting's systems administration experience, technical skills, education, Microsoft Azure certification, and professional development.">
+
+    <title>Experience &amp; Education | Macgregor Whiting</title>
+
     <style>
         :root {
+            color-scheme: dark;
             --bg-color: #0f172a;
             --card-bg: #1e293b;
             --border-color: #334155;
             --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
+            --text-secondary: #bac7d9;
             --accent-blue: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--bg-color);
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2.5rem 1.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-color);
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-underline-offset: 4px;
+        }
+
+        a:hover {
+            color: #a5e5ff;
+        }
+
+        a:focus-visible {
+            outline: 3px solid #fbbf24;
+            outline-offset: 5px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            padding: 0.75rem 1rem;
+            color: var(--bg-color);
+            background: var(--text-primary);
+        }
+
+        .skip-link:focus {
+            top: 1rem;
         }
 
         header {
-            border-bottom: 1px solid var(--border-color);
             padding-bottom: 1.5rem;
             margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        h1 { color: var(--text-primary); font-size: 2.2rem; margin: 0 0 0.3rem 0; letter-spacing: -0.025em; }
-        .subtitle { color: var(--accent-blue); font-weight: 600; font-size: 1.1rem; margin: 0 0 1rem 0; }
-        nav { margin-top: 1.2rem; display: flex; gap: 1.2rem; flex-wrap: wrap; }
-        nav a { color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
-        nav a:hover, nav a.active { color: var(--accent-blue); }
+        .site-name {
+            margin: 0 0 0.3rem;
+            font-size: 2rem;
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .subtitle {
+            margin: 0 0 1rem;
+            color: var(--accent-blue);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.2rem;
+            margin-top: 1.2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        nav a:hover,
+        nav a[aria-current="page"] {
+            color: var(--accent-blue);
+        }
+
+        nav a[aria-current="page"] {
+            text-decoration: underline;
+        }
 
         section {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 1.75rem;
-            border-radius: 8px;
-            margin-bottom: 1.75rem;
+            margin-bottom: 2.5rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        h1 {
+            max-width: 800px;
+            margin: 0.75rem 0 1.25rem;
+            font-size: clamp(2.2rem, 5vw, 3.3rem);
         }
 
         h2 {
+            margin: 0 0 1.25rem;
+            font-size: 1.6rem;
+        }
+
+        h3 {
+            margin: 0 0 0.75rem;
+            font-size: 1.15rem;
+        }
+
+        p {
+            margin: 0 0 1rem;
+            color: var(--text-secondary);
+        }
+
+        strong {
             color: var(--text-primary);
-            font-size: 1.35rem;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.6rem;
+        }
+
+        .hero {
+            padding: 2rem;
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(56, 189, 248, 0.12),
+                    transparent 60%
+                ),
+                var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+
+        .eyebrow {
+            margin-bottom: 0.5rem;
+            color: var(--accent-blue);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .lead {
+            max-width: 70ch;
+            font-size: 1.08rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 16px;
+            color: var(--accent-blue);
+            border: 1px solid var(--accent-blue);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            color: var(--bg-color);
+            background: var(--accent-blue);
+        }
+
+        .btn-primary {
+            color: var(--bg-color);
+            background: var(--accent-blue);
+        }
+
+        .btn-primary:hover {
+            color: var(--bg-color);
+            background: #7dd3fc;
+            border-color: #7dd3fc;
+        }
+
+        .card {
+            min-width: 0;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+        }
+
+        .card > :last-child {
+            margin-bottom: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
         }
 
         .job-header {
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
             flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.5rem 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        .job-title { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); }
-        .job-company { color: var(--accent-blue); font-weight: 600; }
-        .job-date { color: var(--text-secondary); font-size: 0.85rem; }
+        .job-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+        }
 
-        ul { color: var(--text-secondary); padding-left: 1.2rem; margin-top: 0.5rem; }
-        li { margin-bottom: 0.4rem; font-size: 0.95rem; }
-        li strong { color: var(--text-primary); }
+        .job-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
 
-        .cert-grid {
+        .company {
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .responsibilities {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .responsibilities h3 {
+            font-size: 1rem;
+        }
+
+        .experience-list {
+            padding-left: 1.2rem;
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        .experience-list li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .project-link {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .label {
+            margin-bottom: 0.75rem;
+            color: var(--accent-blue);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .credential-meta {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .credential-description {
+            font-size: 0.95rem;
+        }
+
+        .additional-certificates {
             margin-top: 1rem;
         }
 
-        .cert-card {
-            background: #0f172a;
+        .certificate-list {
+            padding-left: 1.2rem;
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        .certificate-list li {
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            padding: 0;
+            margin: 1rem 0 0;
+            list-style: none;
+        }
+
+        .tags li {
+            padding: 3px 8px;
+            color: var(--accent-blue);
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 4px;
+            font-size: 0.78rem;
+        }
+
+        .section-intro {
+            max-width: 70ch;
+            margin-bottom: 1.25rem;
+        }
+
+        .closing {
+            padding: 1.75rem;
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 1rem;
-            border-radius: 6px;
+            border-radius: 10px;
         }
 
-        .cert-card h4 { margin: 0 0 0.3rem 0; color: var(--text-primary); font-size: 1rem; }
-        .cert-card p { margin: 0; font-size: 0.85rem; color: var(--text-secondary); }
-
-        .goal-card {
-            margin-bottom: 1rem;
-            padding: 1rem;
-            background: #0f172a;
-            border-left: 3px solid var(--accent-blue);
-            border-radius: 0 6px 6px 0;
+        footer {
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
         }
 
-        .goal-card h4 { margin: 0 0 0.3rem 0; color: var(--accent-blue); font-size: 1rem; }
-        .goal-card p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); }
+        footer p {
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 650px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+
+            .site-name {
+                font-size: 1.8rem;
+            }
+
+            .hero,
+            .card,
+            .closing {
+                padding: 1.25rem;
+            }
+
+            .grid,
+            .responsibilities {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
+
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
     <header>
-        <h1>Macgregor Whiting</h1>
-        <p class="subtitle">Professional Experience & Action Plan</p>
-        <nav>
+        <p class="site-name">Macgregor Whiting</p>
+
+        <p class="subtitle">
+            IT Systems Administrator | Linux &amp; Cloud Infrastructure
+        </p>
+
+        <nav aria-label="Main navigation">
             <a href="index.html">Home</a>
             <a href="projects.html">Projects</a>
-            <a href="experience.html" class="active">Experience & Goals</a>
+            <a href="experience.html" aria-current="page">
+                Experience &amp; Education
+            </a>
             <a href="contact.html">Contact</a>
-            <a href="https://www.linkedin.com/in/macgregor-whiting" target="_blank">LinkedIn &#x2197;</a>
+            <a href="https://www.linkedin.com/in/macgregor-whiting"
+               target="_blank"
+               rel="noopener noreferrer">
+                LinkedIn ↗
+            </a>
         </nav>
     </header>
 
-    <section>
-        <h2>Professional Experience</h2>
-        <div class="job-header">
-            <span class="job-title">Associate IT Systems Administrator</span>
-            <span class="job-date">Dec. 2020 &ndash; Present</span>
-        </div>
-        <div class="job-company">Binary Empires</div>
-        <ul>
-            <li><strong>Endpoint Management:</strong> Provide first-tier technical support for over 400 remote endpoints, achieving a 90% first-contact resolution rate.</li>
-            <li><strong>Client Onboarding & Growth:</strong> Architected customized IT solutions that supported onboarding 5 new clients; boosted personal billable value by 65% in year two.</li>
-            <li><strong>MSP Coordination:</strong> Served as primary technical liaison for enterprise key accounts, managing escalations with external MSPs.</li>
-            <li><strong>Identity & Lifecycle:</strong> Managed user provisioning, hardware lifecycles, and access compliance across remote environments.</li>
-        </ul>
-    </section>
+    <main id="main">
+        <section class="hero" aria-labelledby="intro-heading">
+            <p class="eyebrow">Professional background</p>
 
-    <section>
-        <h2>Certifications & Education</h2>
-        <div class="cert-grid">
-            <div class="cert-card">
-                <h4>Azure Administrator Associate</h4>
-                <p>Microsoft Certified (AZ-104) | Issued Apr 2026</p>
+            <h1 id="intro-heading">
+                Experience supporting people.<br>
+                Skills built through practice.
+            </h1>
+
+            <p class="lead">
+                My background combines 5+ years of MSP experience,
+                a Bachelor of Applied Science in Information Technology,
+                and Microsoft Azure certification. I bring practical
+                troubleshooting experience and a growing focus on
+                Linux and cloud infrastructure.
+            </p>
+
+            <div class="actions">
+                <a class="btn btn-primary" href="projects.html">
+                    Explore my projects →
+                </a>
+
+                <a class="btn" href="contact.html">
+                    Get in touch
+                </a>
             </div>
-            <div class="cert-card">
-                <h4>B.A.S. Information Technology</h4>
-                <p>Ensign College | Expected Jun 2026</p>
+        </section>
+
+        <section aria-labelledby="experience-heading">
+            <h2 id="experience-heading">Professional experience</h2>
+
+            <article class="card">
+                <div class="job-header">
+                    <h3>Associate IT Systems Administrator</h3>
+                    <span class="job-date">
+                        December 2020–Present
+                    </span>
+                </div>
+
+                <p class="company">Binary Empires · Remote</p>
+
+                <p>
+                    Support small and medium-sized organizations in
+                    an MSP environment, balancing client projects,
+                    ongoing administration, and incoming technical
+                    support requests.
+                </p>
+
+                <div class="responsibilities">
+                    <div>
+                        <h3>Systems and endpoint support</h3>
+
+                        <ul class="experience-list">
+                            <li>
+                                Provide live and asynchronous technical
+                                support across an environment of
+                                400+ computers and mobile devices.
+                            </li>
+                            <li>
+                                Troubleshoot operating systems,
+                                business applications, printers,
+                                docking stations, and other peripherals.
+                            </li>
+                            <li>
+                                Provision computers, clone SSD and HDD
+                                storage, and migrate user data to
+                                replacement hardware.
+                            </li>
+                            <li>
+                                Manage endpoint patching through RMM
+                                software and oversee off-site
+                                company backups.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Cloud, identity, and networking</h3>
+
+                        <ul class="experience-list">
+                            <li>
+                                Administer Microsoft 365 using the
+                                admin, Exchange, and security portals.
+                            </li>
+                            <li>
+                                Provision user accounts and configure
+                                Entra joined and Windows domain joined
+                                computers.
+                            </li>
+                            <li>
+                                Configure FortiGate VPN users and
+                                client connections, troubleshoot
+                                blocked websites, and configure
+                                pfSense firewalls.
+                            </li>
+                            <li>
+                                Evaluate and document networks and
+                                investigate connectivity issues.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Client relationships and coordination</h3>
+
+                        <ul class="experience-list">
+                            <li>
+                                Serve as the primary technical
+                                contact for designated client accounts.
+                            </li>
+                            <li>
+                                Research and implement solutions
+                                based on client requirements.
+                            </li>
+                            <li>
+                                Coordinate technical escalations with
+                                external providers and communicate
+                                progress to stakeholders.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Migrations and integration</h3>
+
+                        <ul class="experience-list">
+                            <li>
+                                Manage Microsoft 365 email cutovers
+                                and domain migrations, addressing
+                                DNS, identity synchronization,
+                                and authentication issues.
+                            </li>
+                            <li>
+                                Migrate client documents from
+                                NetDocuments to SharePoint or Clio.
+                            </li>
+                            <li>
+                                Configure an AI-powered search tool
+                                across internal repositories.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="project-link">
+                    <a href="projects.html#professional">
+                        Explore my professional projects →
+                    </a>
+                </p>
+            </article>
+        </section>
+
+        <section aria-labelledby="education-heading">
+            <h2 id="education-heading">Education and certification</h2>
+
+            <div class="grid">
+                <article class="card">
+                    <p class="label">Bachelor’s degree</p>
+
+                    <h3>
+                        Bachelor of Applied Science in
+                        Information Technology
+                    </h3>
+
+                    <p class="credential-meta">
+                        Ensign College · Salt Lake City, Utah
+                    </p>
+
+                    <p class="credential-meta">October 2026</p>
+                </article>
+
+                <article class="card">
+                    <p class="label">Microsoft certification</p>
+
+                    <h3>
+                        Microsoft Certified:
+                        Azure Administrator Associate
+                    </h3>
+
+                    <p class="credential-meta">
+                        AZ-104 · Issued April 2026
+                    </p>
+
+                    <p class="credential-description">
+                        Azure administration covering identity,
+                        compute, storage, and networking.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <p class="label">Associate degree</p>
+
+                    <h3>
+                        Associate of Applied Science in
+                        Information Technology
+                    </h3>
+
+                    <p class="credential-meta">
+                        Ensign College · Salt Lake City, Utah
+                    </p>
+
+                    <p class="credential-meta">April 2026</p>
+                </article>
+
+                <article class="card">
+                    <p class="label">Additional education</p>
+
+                    <h3>Technical certificates</h3>
+
+                    <p class="credential-meta">Ensign College</p>
+
+                    <ul class="certificate-list">
+                        <li>
+                            <strong>IT Professional Certificate</strong>
+                            — October 2025
+                        </li>
+                        <li>
+                            <strong>
+                                Technical Support Engineer Certificate
+                            </strong>
+                            — April 2025
+                        </li>
+                    </ul>
+                </article>
             </div>
-            <div class="cert-card">
-                <h4>A.A.S. Information Technology</h4>
-                <p>Ensign College | Graduated Apr 2026</p>
+        </section>
+
+        <section aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Technical skills in context</h2>
+
+            <p class="section-intro">
+                My professional experience centers on IT operations
+                and client support. Home lab and academic work expand
+                my practice in Linux, virtualization, and infrastructure.
+            </p>
+
+            <div class="grid">
+                <article class="card">
+                    <p class="label">Professional practice</p>
+
+                    <h3>IT operations and administration</h3>
+
+                    <p>
+                        Endpoint support, Microsoft 365 administration,
+                        user provisioning, patch management, backups,
+                        networking support, and technical documentation.
+                    </p>
+
+                    <ul class="tags" aria-label="Professional skills">
+                        <li>Windows</li>
+                        <li>macOS</li>
+                        <li>Microsoft 365</li>
+                        <li>Entra ID</li>
+                        <li>RMM</li>
+                        <li>FortiGate</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <p class="label">Home lab and project practice</p>
+
+                    <h3>Linux and infrastructure</h3>
+
+                    <p>
+                        Linux server administration, virtual machines,
+                        containers, VLANs, DNS services, VPN access,
+                        and Windows domain environments.
+                    </p>
+
+                    <ul class="tags" aria-label="Infrastructure skills">
+                        <li>Ubuntu Server</li>
+                        <li>Rocky Linux</li>
+                        <li>Proxmox VE</li>
+                        <li>pfSense</li>
+                        <li>OpenVPN</li>
+                        <li>Windows Server</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <p class="label">Lab practice</p>
+
+                    <h3>Azure administration</h3>
+
+                    <p>
+                        Deployed virtual machines, storage accounts,
+                        and identity configurations to practice
+                        cloud administration aligned with AZ-104.
+                    </p>
+
+                    <ul class="tags" aria-label="Azure skills">
+                        <li>Azure VMs</li>
+                        <li>Azure Storage</li>
+                        <li>Entra ID</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <p class="label">Developing skills</p>
+
+                    <h3>Scripting and automation</h3>
+
+                    <p>
+                        Building Bash scripting skills and basic Python
+                        knowledge, using Git to support continued
+                        technical learning and project work.
+                    </p>
+
+                    <ul class="tags" aria-label="Automation skills">
+                        <li>Bash</li>
+                        <li>Basic Python</li>
+                        <li>Git</li>
+                    </ul>
+                </article>
             </div>
-            <div class="cert-card">
-                <h4>IT Support & Technical Certificates</h4>
-                <p>Ensign College | 2025 &ndash; 2026</p>
+        </section>
+
+        <section aria-labelledby="development-heading">
+            <h2 id="development-heading">Current professional development</h2>
+
+            <div class="grid">
+                <article class="card">
+                    <p class="label">Next certification goal</p>
+
+                    <h3>Red Hat Certified System Administrator</h3>
+
+                    <p>
+                        Preparing for RHCSA through hands-on Linux
+                        practice, including command-line administration,
+                        services, permissions, storage, networking,
+                        and secure remote access.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <p class="label">Continuing learning</p>
+
+                    <h3>Infrastructure automation</h3>
+
+                    <p>
+                        Strengthening Bash scripting and exploring
+                        Ansible, Terraform, Kubernetes, and DevOps
+                        workflows as the next stage of my
+                        infrastructure development.
+                    </p>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <h2>Action Plan & SMART Goals</h2>
+        <section class="closing" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Let’s discuss your team’s needs</h2>
 
-        <div class="goal-card">
-            <h4>1. Technical Certification Goal: RHCSA Certification</h4>
-            <p>Complete hands-on lab training in Bash scripting, command-line administration, storage management, and SSH hardening to pass the Red Hat Certified System Administrator (RHCSA) exam by September 1, 2026.</p>
-        </div>
+            <p>
+                I’m interested in systems administration, Linux,
+                and cloud infrastructure opportunities where I can
+                contribute my practical experience and continue growing.
+            </p>
 
-        <div class="goal-card">
-            <h4>2. Ethical & Leadership Goal: Ethical Preparedness</h4>
-            <p>Creating an ethical framework to guide high-privilege access management and data stewardship decisions.</p>
-        </div>
+            <a class="btn" href="contact.html">Let’s connect →</a>
+        </section>
+    </main>
 
-        <div class="goal-card">
-            <h4>3. Service Goal: Technical Discipleship</h4>
-            <p>Maintain daily reflection and weekly logging to identify opportunities to use technical skills for congregation, community, and non-profit IT support.</p>
-        </div>
-
-         <div class="goal-card">
-            <h4>4. Automation & Skill Goal: Bash Scripting & Ansible</h4>
-            <p>Develop strong skills in Bash scripting and Ansible automation by writing custom deployment scripts, building automated playbooks for system configuration, and applying them within my enterprise level homelab by December 31, 2026[cite: 4].
-        </div>
-    </section>
-
+    <footer>
+        <p>
+            Macgregor Whiting | Faith, South Dakota |
+            <a href="https://github.com/mdee-dev"
+               target="_blank"
+               rel="noopener noreferrer">GitHub</a>
+        </p>
+    </footer>
 </body>
 </html>
