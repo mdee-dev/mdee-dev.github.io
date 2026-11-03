@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-          content="Connect with Macgregor Whiting about IT systems administration, Linux, and cloud infrastructure opportunities.">
+          content="Connect with Macgregor Whiting about systems administration, Linux, and cloud infrastructure opportunities.">
 
     <title>Contact | Macgregor Whiting</title>
 
@@ -24,7 +24,7 @@
         }
 
         body {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2.5rem 1.5rem;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -48,23 +48,39 @@
             outline-offset: 5px;
         }
 
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            padding: 0.75rem 1rem;
+            color: var(--bg-color);
+            background: var(--text-primary);
+            z-index: 10;
+        }
+
+        .skip-link:focus {
+            top: 1rem;
+        }
+
         header {
             padding-bottom: 1.5rem;
             margin-bottom: 2rem;
             border-bottom: 1px solid var(--border-color);
         }
 
-        h1 {
+        .site-name {
             margin: 0 0 0.3rem;
-            font-size: 2.2rem;
+            color: var(--text-primary);
+            font-size: 2rem;
             line-height: 1.2;
+            font-weight: 700;
             letter-spacing: -0.025em;
         }
 
         .subtitle {
             margin: 0 0 1rem;
             color: var(--accent-blue);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
         }
 
@@ -92,18 +108,29 @@
         }
 
         section {
-            padding: 1.75rem;
-            margin-bottom: 1.75rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
+            margin-bottom: 2.5rem;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        h1 {
+            margin: 0.75rem 0 1.25rem;
+            font-size: clamp(2.2rem, 5vw, 3.3rem);
         }
 
         h2 {
             margin: 0 0 1rem;
-            font-size: 1.65rem;
-            line-height: 1.25;
-            letter-spacing: -0.025em;
+            font-size: 1.6rem;
+        }
+
+        h3 {
+            margin: 0 0 0.75rem;
+            font-size: 1.2rem;
         }
 
         p {
@@ -111,49 +138,80 @@
             color: var(--text-secondary);
         }
 
-        .intro {
-            max-width: 65ch;
-            font-size: 1.05rem;
+        .hero {
+            padding: 2rem;
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(56, 189, 248, 0.12),
+                    transparent 60%
+                ),
+                var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+
+        .eyebrow {
+            margin-bottom: 0.5rem;
+            color: var(--accent-blue);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .lead {
+            max-width: 70ch;
+            margin-bottom: 0;
+            font-size: 1.08rem;
         }
 
         .contact-list {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: stretch;
             gap: 1rem;
             padding: 0;
-            margin: 1.75rem 0;
+            margin: 0;
             list-style: none;
         }
 
-        .contact-list li {
+        .contact-card {
+            display: flex;
+            flex-direction: column;
             min-width: 0;
-            padding: 1.25rem;
-            background: var(--bg-color);
+            padding: 1.5rem;
+            background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 10px;
         }
 
-        .contact-list h3 {
-            margin: 0 0 0.5rem;
-            font-size: 1.1rem;
+        .card-label {
+            margin-bottom: 0.75rem;
+            color: var(--accent-blue);
+            font-size: 0.78rem;
+            font-weight: 600;
         }
 
-        .contact-list p {
+        .card-description {
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
             font-size: 0.95rem;
         }
 
-        .contact-list a {
-            overflow-wrap: anywhere;
-        }
-
         .btn {
-            display: inline-block;
-            padding: 10px 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 10px 14px;
             color: var(--accent-blue);
             border: 1px solid var(--accent-blue);
             border-radius: 6px;
             font-size: 0.9rem;
             font-weight: 600;
+            line-height: 1.4;
+            text-align: center;
             text-decoration: none;
         }
 
@@ -162,9 +220,44 @@
             background: var(--accent-blue);
         }
 
-        .location {
+        .contact-card .btn {
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .btn-primary {
+            color: var(--bg-color);
+            background: var(--accent-blue);
+        }
+
+        .btn-primary:hover {
+            color: var(--bg-color);
+            background: #7dd3fc;
+            border-color: #7dd3fc;
+        }
+
+        .projects-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding: 1.75rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+        }
+
+        .projects-copy {
+            flex: 1 1 350px;
+        }
+
+        .projects-copy p {
             margin-bottom: 0;
-            font-size: 0.9rem;
+        }
+
+        .projects-section .btn {
+            flex: 0 0 auto;
         }
 
         footer {
@@ -173,32 +266,56 @@
         }
 
         footer p {
+            margin-bottom: 0;
             font-size: 0.85rem;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
+            .contact-list {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card {
+                padding: 1.25rem;
+            }
+
+            .contact-card .btn {
+                align-self: flex-start;
+                width: auto;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 650px) {
             body {
                 padding: 1.5rem 1rem;
             }
 
-            h1 {
-                font-size: 1.9rem;
+            .site-name {
+                font-size: 1.8rem;
             }
 
-            section {
+            .hero,
+            .projects-section {
                 padding: 1.25rem;
             }
 
-            .contact-list {
-                grid-template-columns: 1fr;
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            section {
+                margin-bottom: 1.75rem;
             }
         }
     </style>
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <header>
-        <h1>Macgregor Whiting</h1>
+        <p class="site-name">Macgregor Whiting</p>
 
         <p class="subtitle">
             IT Systems Administrator | Linux &amp; Cloud Infrastructure
@@ -217,31 +334,35 @@
         </nav>
     </header>
 
-    <main>
-        <section aria-labelledby="contact-heading">
-            <h2 id="contact-heading">Let’s connect</h2>
+    <main id="main">
+        <section class="hero" aria-labelledby="contact-heading">
+            <p class="eyebrow">Contact and professional connections</p>
 
-            <p class="intro">
-                I’m interested in systems administration, Linux, and cloud
-                infrastructure opportunities where I can contribute my MSP
-                experience and continue developing my technical skills.
-            </p>
+            <h1 id="contact-heading">Let’s connect.</h1>
 
-            <p>
-                To discuss an opportunity or ask about my experience,
-                connect with me on LinkedIn. You can also explore my
-                repositories and technical work on GitHub.
+            <p class="lead">
+                I’m interested in systems administration, Linux, and
+                cloud infrastructure opportunities where I can contribute
+                my MSP experience and continue developing my technical
+                skills. Connect with me on LinkedIn, explore my work,
+                or download my resume below.
             </p>
+        </section>
+
+        <section aria-labelledby="links-heading">
+            <h2 id="links-heading">Connect and explore</h2>
 
             <ul class="contact-list">
-                <li>
+                <li class="contact-card">
+                    <p class="card-label">Professional connections</p>
                     <h3>LinkedIn</h3>
-                    <p>
+
+                    <p class="card-description">
                         Connect with me about career opportunities,
                         professional experience, or technical projects.
                     </p>
 
-                    <a class="btn"
+                    <a class="btn btn-primary"
                        href="https://www.linkedin.com/in/macgregor-whiting"
                        target="_blank"
                        rel="noopener noreferrer">
@@ -249,11 +370,13 @@
                     </a>
                 </li>
 
-                <li>
+                <li class="contact-card">
+                    <p class="card-label">Projects and repositories</p>
                     <h3>GitHub</h3>
-                    <p>
-                        Explore my repositories and follow my work
-                        as I build my infrastructure skills.
+
+                    <p class="card-description">
+                        Explore my repositories, infrastructure
+                        projects, and ongoing technical work.
                     </p>
 
                     <a class="btn"
@@ -263,20 +386,35 @@
                         View GitHub profile ↗
                     </a>
                 </li>
-            </ul>
-            <a class="btn" href="Macgregor-Whiting-Resume.pdf" download>
-                Download Resume (PDF)
-            </a>
 
+                <li class="contact-card">
+                    <p class="card-label">Experience and qualifications</p>
+                    <h3>Resume</h3>
+
+                    <p class="card-description">
+                        Download a summary of my experience, technical
+                        skills, education, and certifications.
+                    </p>
+
+                    <a class="btn"
+                       href="Macgregor-Whiting-Resume.pdf"
+                       download>
+                        Download Resume (PDF)
+                    </a>
+                </li>
+            </ul>
         </section>
 
-        <section aria-labelledby="projects-heading">
-            <h2 id="projects-heading">Explore my technical work</h2>
+        <section class="projects-section"
+                 aria-labelledby="projects-heading">
+            <div class="projects-copy">
+                <h2 id="projects-heading">Explore my technical work</h2>
 
-            <p>
-                See my professional projects, home lab implementations,
-                and academic infrastructure designs.
-            </p>
+                <p>
+                    See my professional projects, home lab
+                    implementations, and academic infrastructure designs.
+                </p>
+            </div>
 
             <a class="btn" href="projects.html">View projects →</a>
         </section>
